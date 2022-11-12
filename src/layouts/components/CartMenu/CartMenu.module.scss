@@ -1,0 +1,35 @@
+.menu-list {
+    width: 240px;
+    .menu-item {
+        margin-left: 0;
+    }
+}
+
+.menu-popper {
+    padding-bottom: 8px;
+}
+
+.menu-body {
+    overflow-y: auto;
+}
+
+// cart null
+
+.cart-null {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cart-null-img {
+    width: 160px;
+}
+
+.cart-null-text {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--text-color);
+    padding: 12px;
+}
