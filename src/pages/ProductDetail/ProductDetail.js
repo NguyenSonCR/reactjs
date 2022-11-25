@@ -13,6 +13,7 @@ import { CartContext } from '~/contexts/CartContext';
 import { ToastContext } from '~/contexts/ToastContext';
 import Comment from '~/components/Comment/Comment';
 import ButtonBuy from '~/layouts/components/ButtonBuy';
+
 const cx = classNames.bind(styles);
 
 function ProductDetail() {
@@ -99,6 +100,10 @@ function ProductDetail() {
   });
   const [imgModel, setImgModel] = useState(false);
 
+  // touch
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
   let body = null;
   if (product === null) {
     body = <Spinner />;
@@ -122,6 +127,38 @@ function ProductDetail() {
       slide = [img, ...imgSlide];
     }
 
+    // touch
+    function handleTouchStart(e) {
+      setTouchStart(e.targetTouches[0].clientX);
+    }
+
+    function handleTouchMove(e) {
+      setTouchEnd(e.targetTouches[0].clientX);
+    }
+
+    function handleTouchEnd() {
+      if (touchStart - touchEnd < -100) {
+        // do your stuff here for left swipe
+        console.log('touch left');
+        if (avatar.id !== 0) {
+          setAvatar({
+            id: avatar.id - 1,
+            img: slide[avatar.id - 1],
+          });
+        }
+      }
+
+      if (touchStart - touchEnd > 100) {
+        // do your stuff here for right swipe
+        if (avatar.id < slide.length - 1) {
+          setAvatar({
+            id: avatar.id + 1,
+            img: slide[avatar.id + 1],
+          });
+        }
+      }
+    }
+
     if (width < 740) {
       body = (
         <div className={cx('wrapper')}>
@@ -140,6 +177,9 @@ function ProductDetail() {
                   onClick={() => {
                     setImgModel(false);
                   }}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
                 >
                   <FontAwesomeIcon
                     icon={faChevronLeft}
@@ -160,6 +200,7 @@ function ProductDetail() {
                     alt={name}
                     onClick={(event) => event.stopPropagation()}
                   ></img>
+
                   <FontAwesomeIcon
                     icon={faChevronRight}
                     className={cx('img-next')}

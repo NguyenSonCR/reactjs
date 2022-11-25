@@ -101,8 +101,8 @@
 }
 
 .comment-date {
-    font-size: 1.6rem;
-    font-weight: 400;
+    font-size: 1.4rem;
+    font-weight: 300;
     color: var(--text-color);
     padding: 6px;
 }
@@ -191,5 +191,6 @@
 .btn-delete {
     cursor: pointer;
     padding: 8px;
-    color: var(--text-color)
+    color: var(--text-color);
+    opacity: 0.6;
 }

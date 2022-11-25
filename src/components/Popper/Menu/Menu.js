@@ -15,9 +15,9 @@ const defaultFn = () => {};
 function Menu({ children, items = [], visible, offset = [], hideOnClick = false, onChange = defaultFn }) {
   const [history, setHistory] = useState([{ data: items }]);
 
-  // useEffect(() => {
-  //   setHistory([{ data: items }]);
-  // }, [items]);
+  useEffect(() => {
+    setHistory([{ data: items }]);
+  }, [items]);
 
   const current = history[history.length - 1];
 

@@ -15,8 +15,14 @@
 .logo-wrapper {
     width: 320px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+}
+
+.logo-wrapper-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo {
@@ -24,21 +30,21 @@
 }
 .logo-img {
     height: 40px;
-    padding: 0 20px;
+    padding: 0 8px;
     border-radius: 50%;
 }
 
 .logo-text {
-    margin-left: 12px;
+    padding: 4px;
     font-weight: 400;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--white-color);
 }
 
 .logo-text-title {
-    margin-left: 12px;
+    padding: 4px 0;
     font-weight: 400;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--text-color);
 }
 //input
@@ -67,6 +73,7 @@
         width: 420px;
     }
 }
+
 .title {
     font-weight: 400;
     font-size: 1.8rem;
@@ -99,8 +106,7 @@
     font-size: 1.4rem;
     border: 1px solid var(--border-color);
     border-radius: 2px;
-    font-size: 1.6rem;
-    font-weight: 400;
+    font-weight: 300;
     color: var(--text-color);
     &:focus {
         border-color: var(--primary-color)
@@ -126,7 +132,7 @@
     font-size: 1.4rem;
     border: 1px solid var(--border-color);
     border-radius: 2px;
-    font-weight: 400;
+    font-weight: 300;
     color: var(--text-color);
     
 }
@@ -140,9 +146,9 @@
 }
 
 .password {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     border-radius: 2px;
-    font-weight: 400;
+    font-weight: 300;
     flex: 1;
     width: 100%;
     border-right: none;
@@ -166,6 +172,7 @@
     justify-content: flex-end;
     margin-bottom: 12px;
 }
+
 
 .button-submit {
     display: inline-flex;
@@ -199,6 +206,7 @@
 .help {
     display: flex;
     justify-content: space-between;
+    padding: 0 12px;
 }
 
 .help-text {
@@ -223,7 +231,7 @@
     position: absolute;
     content: '';
     border-top: 1px solid #ccc;
-    width: 80px;
+    width: 50px;
     left: 20px;
     top: 16px;
 }
@@ -232,7 +240,7 @@
     position: absolute;
     content: '';
     border-top: 1px solid #ccc;
-    width: 80px;
+    width: 50px;
     right: 20px;
     top: 16px;
 }
@@ -279,6 +287,16 @@
     font-size: 1.6rem;
     padding: 8px;
     font-weight: 300;
-    color: var(--text-color);
     text-align: center;
+    line-height: 2rem;
+}
+
+.change-btn {
+    color: var(--white-color);
+}
+
+@media (max-width: 739px) {
+    .button {
+        justify-content: center;
+    }
 }

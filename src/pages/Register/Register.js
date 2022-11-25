@@ -18,6 +18,7 @@ import { validation, setOnFocus } from '~/utils/validation';
 const cx = classNames.bind(styles);
 
 function Login() {
+  const width = window.innerWidth > 0 ? window.innerWidth : window.screen.width;
   const [formValue, setFormValue] = useState({
     username: '',
     password: '',
@@ -175,16 +176,19 @@ function Login() {
         <div className={cx('header')}>
           <div className={cx('inner')}>
             <div className={cx('logo-wrapper')}>
-              <Link className={cx('logo')} to={config.routes.home}>
-                <img src={images.logo} alt="logo" className={cx('logo-img')}></img>
-              </Link>
-              <Link to={config.routes.home} className={cx('logo-text')}>
-                Nhật Bình Shop
-              </Link>
-              <p className={cx('logo-text')}> Đăng ký</p>
+              <div className={cx('logo-wrapper-link')}>
+                <Link className={cx('logo')} to={config.routes.home}>
+                  <img src={images.logo} alt="logo" className={cx('logo-img')}></img>
+                </Link>
+                <Link to={config.routes.home} className={cx('logo-text-title')}>
+                  Nhật Bình Shop
+                </Link>
+              </div>
+              <p className={cx('logo-text')}>Đăng Nhập</p>
             </div>
           </div>
         </div>
+
         <div className={cx('content')}>
           <div className={cx('form')}>
             <div className={cx('title')}>
@@ -192,9 +196,9 @@ function Login() {
             </div>
             <form className={cx('form-content')} id="form-register" onSubmit={register}>
               <div className={cx('form-group')}>
-                <label htmlFor="username" className={cx('label')}>
+                {/* <label htmlFor="username" className={cx('label')}>
                   Tên đăng nhập:
-                </label>
+                </label> */}
                 <input
                   onFocus={(event) => setOnFocus(event, setFormValid, formValid, password)}
                   onBlur={setOnBlur}
@@ -210,9 +214,9 @@ function Login() {
                 <span className={cx('form-message')}>{usernameBlur && formErrors.username}</span>
               </div>
               <div className={cx('form-group')}>
-                <label htmlFor="fullName" className={cx('label')}>
+                {/* <label htmlFor="fullName" className={cx('label')}>
                   Họ tên:
-                </label>
+                </label> */}
                 <input
                   onFocus={(event) => setOnFocus(event, setFormValid, formValid, password)}
                   onBlur={setOnBlur}
@@ -229,9 +233,9 @@ function Login() {
               </div>
 
               <div className={cx('form-group')}>
-                <label htmlFor="password" className={cx('label')}>
+                {/* <label htmlFor="password" className={cx('label')}>
                   Mật khẩu:
-                </label>
+                </label> */}
                 <div className={cx('form-password')}>
                   <div className={cx('input-password', passwordBlur && !passwordValid && 'error')}>
                     <input
@@ -242,7 +246,7 @@ function Login() {
                       type={show.type}
                       id="password"
                       name={'password'}
-                      placeholder="Nhập ít nhất 8 kí tự"
+                      placeholder="Nhập mật khẩu"
                       onChange={onChangeForm}
                       autoComplete="true"
                     />
@@ -293,16 +297,16 @@ function Login() {
                 <span className={cx('form-message')}>{passwordConfirmBlur && formErrors.passwordConfirm}</span>
               </div>
 
-              <div className={cx('button')}>
-                <Button to={config.routes.login} className={cx('btn-back')} primary>
+              <div className={cx('button', width < 740 && 'mobile')}>
+                <Button to={config.routes.login} className={cx('btn-back', width < 740 && 'mobile')} primary>
                   Quay lại
                 </Button>
                 {usernameValid && fullNameValid && passwordValid && passwordConfirmValid ? (
-                  <Button type="submit" primary fill>
+                  <Button type="submit" primary fill className={cx('btn-back', width < 740 && 'mobile')}>
                     Đăng ký
                   </Button>
                 ) : (
-                  <Button primary disable>
+                  <Button primary disable className={cx('btn-register', width < 740 && 'mobile')}>
                     Đăng ký
                   </Button>
                 )}

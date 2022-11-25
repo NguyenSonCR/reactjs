@@ -6,7 +6,6 @@ import Products from '../Products';
 import styles from './Home.module.scss';
 import NaviMobi from '~/layouts/components/NaviMobi';
 import { AuthContext } from '~/contexts/AuthContext';
-import MessengerCustomerChat from 'react-messenger-customer-chat';
 const cx = classNames.bind(styles);
 
 function Home() {
@@ -20,6 +19,7 @@ function Home() {
 
   useEffect(() => {
     chooseNavigation('home');
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -34,7 +34,6 @@ function Home() {
         <div className={cx('category-header')}>
           <p className={cx('category-header-text')}>DANH MỤC</p>
         </div>
-
         <div className={cx('category-content')}>
           {categories &&
             categories.map((category, index) => (
@@ -49,17 +48,12 @@ function Home() {
               </Link>
             ))}
         </div>
-
         <div className={cx('suggest')}>
           <div className={cx('suggest-header')}>
             <p className={cx('suggest-header-text')}>GỢI Ý HÔM NAY</p>
           </div>
           <Products />
         </div>
-        <MessengerCustomerChat
-            pageId="<PAGE_ID>"
-            appId="<APP_ID>"
-          />,
         {width < 740 && <NaviMobi />}
       </div>
     </div>

@@ -19,13 +19,15 @@ function ButtonBuy({ data }) {
         <FontAwesomeIcon icon={faMessage} className={cx('icon', 'active')}></FontAwesomeIcon>
         <p className={cx('text')}>Chat ngay</p>
       </Link>
-      <button onClick={() => handelAddCart(product, amount)} className={cx('list-add')}>
-        <FontAwesomeIcon className={cx('icon-add')} icon={faCartPlus}></FontAwesomeIcon>
-        <p className={cx('text-add')}>Thêm vào giỏ hàng</p>
-      </button>
-      <button onClick={() => handleBuy(product, amount)} className={cx('list-buy')}>
-        <p className={cx('buy')}>Mua ngay</p>
-      </button>
+      <div className={cx('group')}>
+        <button onClick={() => handelAddCart(product, amount)} className={cx('list-add')}>
+          <FontAwesomeIcon className={cx('icon-add')} icon={faCartPlus}></FontAwesomeIcon>
+          <p className={cx('text-add')}>Thêm vào giỏ hàng</p>
+        </button>
+        <button onClick={() => handleBuy(product, amount)} className={cx('list-buy')}>
+          <p className={cx('buy')}>Mua ngay</p>
+        </button>
+      </div>
       <Link to={config.routes.cart} className={cx('list')}>
         <div className={cx('cart-icon')}>
           {cart && cart.products.length > 0 ? (

@@ -22,6 +22,7 @@ function Posts() {
 
   useEffect(() => {
     chooseNavigation('post');
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -53,9 +54,9 @@ function Posts() {
     body = <Spinner />;
   } else if (posts.length === 0) {
     body = (
-      <div className={cx('content')}>
+      <div className={cx('content-nopost')}>
         <div className={cx('wrapper')}>
-          <p className={cx('text')}>Chưa có bài viết nào</p>
+          <p className={cx('text-nopost')}>Chưa có bài viết nào</p>
           <Button primary to={config.routes.home} className={cx('link')}>
             Quay lại trang chủ
           </Button>

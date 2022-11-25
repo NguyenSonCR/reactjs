@@ -33,6 +33,21 @@
     border-bottom: 1px solid #ccc;
 }
 
+.content-nopost {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100vh - 60px);
+}
+
+.text-nopost {
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: 1.6rem;
+    padding: 4px 8px;
+}
+
 .content {
     margin: 8px;
     color: var(--text-color);

@@ -152,6 +152,15 @@
 @media(max-width: 740px) {
     .action-btn.mobile {
         margin-right: 0;
+        display: flex;
+        justify-content: center;
+    }
+    .btn {
+        margin: 0 12px;
+    }
+
+    .contact {
+        margin: 0 12px;
     }
     .action.mobile {
         display: flex;

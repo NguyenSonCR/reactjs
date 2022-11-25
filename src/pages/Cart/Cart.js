@@ -29,6 +29,7 @@ function Cart() {
 
   useEffect(() => {
     chooseNavigation('cart');
+    // eslint-disable-next-line
   }, []);
 
   const [totalMoney, setTotalMoney] = useState(0);

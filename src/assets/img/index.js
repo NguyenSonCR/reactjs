@@ -1,7 +1,7 @@
 const images = {
   logo: require('~/assets/img/logo.png'),
   product: require('~/assets/img/cart_1.jpg'),
-  avatar: require('~/assets/img/avatar.jpg'),
+  avatar: require('~/assets/img/user-avatar.png'),
   home: require('~/assets/img/home.jpg'),
   facebook: require('~/assets/img/facebook.png'),
   google: require('~/assets/img/google.png'),

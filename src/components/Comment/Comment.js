@@ -15,7 +15,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 
 function Comment({ product }) {
-  const { sendComment, sendCommentChildren, uploadFilesGoogle, deleteComment } = useContext(ProductContext);
+  const { sendComment, sendCommentChildren, uploadFiles, deleteComment } = useContext(ProductContext);
   const {
     authState: { user },
   } = useContext(AuthContext);
@@ -123,7 +123,7 @@ function Comment({ product }) {
     });
 
     try {
-      const response = await uploadFilesGoogle(data);
+      const response = await uploadFiles(data);
       return response;
     } catch (error) {
       console.log(error);
@@ -215,10 +215,10 @@ function Comment({ product }) {
                   <div className={cx('parent')}>
                     <div className={cx('header')}>
                       <div className={cx('user')}>
-                        <img className={cx('user-img')} src={item.img ? item.img : images.logo} alt=""></img>
+                        <img className={cx('user-img')} src={item.img ? item.img : images.avatar} alt=""></img>
                         <div className={cx('user-name')}>
                           <p className={cx('user-name')}>{item.fullName}</p>
-                          <p className={cx('comment-date')}> -{item.createdAt}</p>
+                          <p className={cx('comment-date')}> {item.createdAt}</p>
                         </div>
                       </div>
                       <div>
@@ -249,12 +249,12 @@ function Comment({ product }) {
                             <div className={cx('user')}>
                               <img
                                 className={cx('user-img')}
-                                src={itemChildren.img ? itemChildren.img : images.logo}
+                                src={itemChildren.img ? itemChildren.img : images.avatar}
                                 alt=""
                               ></img>
                               <div className={cx('user-name')}>
                                 <p className={cx('user-name')}>{itemChildren.fullName}</p>
-                                <p className={cx('comment-date')}> -{itemChildren.createdAt}</p>
+                                <p className={cx('comment-date')}> {itemChildren.createdAt}</p>
                               </div>
                             </div>
                             <div className={cx('comment-info')}>
@@ -298,7 +298,7 @@ function Comment({ product }) {
                             Hủy
                           </Button>
                           <Button type="submit" className={cx('btn')} primary>
-                            Gửi phản hồi
+                            Gửi
                           </Button>
                         </div>
                       </form>
@@ -346,7 +346,7 @@ function Comment({ product }) {
               </div>
               <div className={cx('btn-submit')}>
                 <Button type="submit" primary>
-                  Gửi đánh giá
+                  Gửi
                 </Button>
               </div>
             </form>
@@ -373,7 +373,7 @@ function Comment({ product }) {
                         <img className={cx('user-img')} src={item.img ? item.img : images.logo} alt=""></img>
                         <div className={cx('user-name')}>
                           <p className={cx('user-name')}>{item.username}</p>
-                          <p className={cx('comment-date')}> -{item.createdAt}</p>
+                          <p className={cx('comment-date')}> {item.createdAt}</p>
                         </div>
                       </div>
                       <div>
@@ -409,7 +409,7 @@ function Comment({ product }) {
                               ></img>
                               <div className={cx('user-name')}>
                                 <p className={cx('user-name')}>{itemChildren.username}</p>
-                                <p className={cx('comment-date')}> -{itemChildren.createdAt}</p>
+                                <p className={cx('comment-date')}> {itemChildren.createdAt}</p>
                               </div>
                             </div>
                             <div className={cx('comment-info')}>
@@ -437,7 +437,7 @@ function Comment({ product }) {
                           value={children}
                           onChange={onChangeChildren}
                           type="text"
-                          rows={4}
+                          rows={2}
                           spellCheck="false"
                         ></textarea>
                         <div className={cx('sendcomment-action')}>
@@ -453,7 +453,7 @@ function Comment({ product }) {
                             Hủy
                           </Button>
                           <Button type="submit" className={cx('btn')} primary>
-                            Gửi phản hồi
+                            Gửi
                           </Button>
                         </div>
                       </form>
@@ -486,7 +486,7 @@ function Comment({ product }) {
                 value={formValue}
                 onChange={onChangeForm}
                 type="text"
-                rows={4}
+                rows={2}
                 spellCheck="false"
               ></textarea>
               <div className={cx('form-group')}>
@@ -501,7 +501,7 @@ function Comment({ product }) {
               </div>
               <div className={cx('btn-submit')}>
                 <Button type="submit" primary>
-                  Gửi đánh giá
+                  Gửi
                 </Button>
               </div>
             </form>

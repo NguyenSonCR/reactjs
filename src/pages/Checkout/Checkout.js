@@ -69,6 +69,7 @@ function Checkout() {
         address: user.address,
       });
     }
+    // eslint-disable-next-line
   }, []);
   const { phoneNumber, address } = formValue;
   const onChangeForm = (event) => {
@@ -288,14 +289,17 @@ function Checkout() {
           <div className={cx('footer-list')}>
             <p className={cx('footer-item')}>Phí vận chuyển</p>
             <p className={cx('footer-item')}>
-              {transports && transports[0].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+              {transports && transports.length > 0
+                ? transports[0].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+                : 0}
             </p>
           </div>
           <div className={cx('footer-list')}>
             <p className={cx('footer-item')}>Tổng thanh toán</p>
             <p className={cx('footer-item')}>
-              {totalMoney &&
-                (totalMoney + (transports && transports[0].price)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+              {(totalMoney && transports.length) > 0
+                ? (totalMoney + (transports && transports[0].price)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+                : totalMoney.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
               đ
             </p>
           </div>

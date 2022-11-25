@@ -1,13 +1,12 @@
 
 .wrapper {
-    height: 60px;
+    height: 54px;
     display: flex;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: var(--white-color);
-    padding: 4px 4px;
     align-items: center;
     justify-content: space-evenly;
 }
@@ -18,7 +17,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 4px 8px;
+    padding: 0 4px;
     &:active {
         cursor: pointer;
         background-color: rgb(0, 131, 59)
@@ -31,8 +30,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 4px 8px;
     background-color: var(--primary-color);
+    padding: 0 4px;
     &:active {
         cursor: pointer;
         background-color: rgb(0, 131, 59)
@@ -44,32 +43,51 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 4px;
     background-color: var(--primary-color);
+    position: relative;
+}
+
+.list-buy::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    height: 100%;
+    border-left: 1px solid var(--white-color);
+}
+
+.group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 4px;
 }
 
 .buy {
     font-weight: 300;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: var(--white-color);
-    padding: 0 6px;
+    padding: 4px;
 }
 
 .text {
     font-weight: 300;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: var(--text-color-color);
     padding-top: 8px;
 }
 .text-add {
     font-weight: 300;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: var(--white-color);
     padding-top: 8px;
 }
 
 .text-cart {
     font-weight: 300;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: var(--text-color);
 }
 

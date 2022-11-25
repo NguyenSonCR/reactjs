@@ -17,6 +17,14 @@ import Toast from '~/components/Toast';
 const cx = classNames.bind(styles);
 
 function Login() {
+  // const width = window.innerWidth > 0 ? window.innerWidth : window.screen.width;
+  const {
+    loginUser,
+    authState: { authLoading, isAuthenticated },
+    signInWithGoogle,
+    signInWithFaceBook,
+  } = useContext(AuthContext);
+
   const [formValue, setFormValue] = useState({
     username: '',
     password: '',
@@ -78,13 +86,6 @@ function Login() {
     type: 'password',
   });
 
-  const {
-    loginUser,
-    authState: { authLoading, isAuthenticated },
-    signInWithGoogle,
-    signInWithFaceBook,
-  } = useContext(AuthContext);
-
   const { username, password } = formValue;
   const onClickIcon = () => {
     if (show.type === 'password') {
@@ -139,7 +140,7 @@ function Login() {
     toastState: { toastList },
     addToast,
   } = useContext(ToastContext);
-  
+
   let navigate = useNavigate();
   const login = async (event) => {
     event.preventDefault();
@@ -171,10 +172,14 @@ function Login() {
         <div className={cx('header')}>
           <div className={cx('inner')}>
             <div className={cx('logo-wrapper')}>
-              <Link className={cx('logo')} to={config.routes.home}>
-                <img src={images.logo} alt="logo" className={cx('logo-img')}></img>
-              </Link>
-              <p className={cx('logo-text-title')}>Nhật Bình Shop</p>
+              <div className={cx('logo-wrapper-link')}>
+                <Link className={cx('logo')} to={config.routes.home}>
+                  <img src={images.logo} alt="logo" className={cx('logo-img')}></img>
+                </Link>
+                <Link to={config.routes.home} className={cx('logo-text-title')}>
+                  Nhật Bình Shop
+                </Link>
+              </div>
               <p className={cx('logo-text')}>Đăng Nhập</p>
             </div>
           </div>
@@ -186,9 +191,6 @@ function Login() {
             </div>
             <form className={cx('form-content')} onSubmit={login}>
               <div className={cx('form-group')}>
-                <label htmlFor="username" className={cx('label')}>
-                  Tên đăng nhập:
-                </label>
                 <input
                   value={username}
                   type={'text'}
@@ -204,9 +206,6 @@ function Login() {
                 <span className={cx('form-error')}>{usernameBlur && formErrors.username}</span>
               </div>
               <div className={cx('form-group')}>
-                <label htmlFor="password" className={cx('label')}>
-                  Mật khẩu:
-                </label>
                 <div
                   className={cx(
                     'input-password',
@@ -241,7 +240,7 @@ function Login() {
                   Quay lại
                 </Button>
                 {usernameValid && passwordValid ? (
-                  <Button type="submit" text primary>
+                  <Button type="submit" fill primary>
                     Đăng nhập
                   </Button>
                 ) : (
@@ -271,7 +270,7 @@ function Login() {
               </div>
               <div className={cx('change')}>
                 <p className={cx('change-text')}>Bạn mới biết đến Nhật Bình Shop?</p>
-                <Button to={config.routes.register} primary>
+                <Button to={config.routes.register} primary fill className={cx('change-btn')}>
                   Đăng ký
                 </Button>
               </div>

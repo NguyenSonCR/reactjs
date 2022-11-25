@@ -121,7 +121,7 @@ function PurchaseItem({ data }) {
                     </p>
                   </div>
                   <div className={cx('action-btn', 'mobile')}>
-                    <Button text primary>
+                    <Button text primary className={cx('contact')}>
                       Liên hệ với người bán
                     </Button>
                     <Button text primary onClick={() => handleCancel(order)} className={cx('btn')}>

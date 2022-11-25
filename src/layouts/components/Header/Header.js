@@ -105,7 +105,7 @@ function Header() {
                 <Menu items={userMenu} onChange={handleMenuOnchange} offset={[20, 8]}>
                   <div className={cx('user-content')}>
                     <img
-                      src={user && user.img ? user.img : images.logo}
+                      src={user && user.img ? user.img : images.avatar}
                       className={cx('user-avatar')}
                       alt={user.fullName || user.username}
                     ></img>
@@ -145,7 +145,7 @@ function Header() {
                 <Menu items={userMenu} onChange={handleMenuOnchange} offset={[20, 8]}>
                   <div className={cx('user-content', 'mobile')}>
                     <img
-                      src={user && user.img && user.img !== '' ? user.img : images.logo}
+                      src={user && user.img && user.img !== '' ? user.img : images.avatar}
                       className={cx('user-avatar-mobile')}
                       alt={user.fullName || user.username}
                     ></img>

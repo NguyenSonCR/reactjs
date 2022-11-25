@@ -18,10 +18,11 @@ function Profile() {
     chooseNavigation,
   } = useContext(AuthContext);
   const { username, img, fullName } = user;
-  const { uploadFileGoogle } = useContext(ProductContext);
+  const { uploadFile } = useContext(ProductContext);
 
   useEffect(() => {
     chooseNavigation('user');
+    // eslint-disable-next-line
   }, []);
 
   const {
@@ -57,7 +58,7 @@ function Profile() {
     dataSingle.append('file', newFile);
 
     try {
-      const response = await uploadFileGoogle(dataSingle);
+      const response = await uploadFile(dataSingle);
       return response;
     } catch (error) {
       console.log(error);

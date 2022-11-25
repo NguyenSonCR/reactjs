@@ -1,5 +1,5 @@
 export const apiUrl =
-  process.env.NODE_ENV !== 'production' ? 'http://localhost:3000/api' : 'https://noloce.com:5000/api';
+  process.env.NODE_ENV !== 'production' ? 'http://localhost:3000/api' : 'https://api.nhatbinhshop.com/api';
 export const LOCAL_STORAGE_TOKEN_NAME = 'user_NhatBinh';
 
 // user

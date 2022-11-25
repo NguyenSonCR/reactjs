@@ -2,7 +2,7 @@
 .search {
     position: relative;
     display: flex;
-    width: 180px;
+    width: 164px;
     height: 46px;
     padding-left: 16px;
     background-color:rgb(239, 247, 247);
@@ -97,6 +97,8 @@
     &:active {
         background-color: rgba(22, 24, 35, 0.06);
     } 
+    font-size: 1.8rem;
+    font-weight: 300;
 }
 .search-result {
     width: 220px;
