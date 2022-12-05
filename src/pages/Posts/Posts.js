@@ -55,7 +55,7 @@ function Posts() {
   } else if (posts.length === 0) {
     body = (
       <div className={cx('content-nopost')}>
-        <div className={cx('wrapper')}>
+        <div className={cx('wrapper-nopost')}>
           <p className={cx('text-nopost')}>Chưa có bài viết nào</p>
           <Button primary to={config.routes.home} className={cx('link')}>
             Quay lại trang chủ
@@ -92,7 +92,7 @@ function Posts() {
       );
     } else {
       body = (
-        <div className={cx('post')}>
+        <div className={cx('post', 'mobile')}>
           <div className={cx(['row', 'sm-gutter'])}>
             <h3 className={cx('header-title')}>Tất cả bài viết</h3>
             {currentPage.map((post, index) => (
@@ -102,7 +102,6 @@ function Posts() {
                     <h4 className={cx('title')}>{post.title}</h4>
                     <p className={cx('header')}>{post.header}</p>
                     <p className={cx('content')}>{post.content}</p>
-                    <img className={cx('img')} src={post.img[0]} alt="" />
                   </div>
                 </Button>
               </div>

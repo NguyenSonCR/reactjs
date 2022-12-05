@@ -51,7 +51,7 @@ function Checkout() {
       };
     });
   }
-  let totalMoney = null;
+  let totalMoney = 0;
   if (checkoutProducts) {
     totalMoney = checkoutProducts.reduce((total, item) => {
       return total + item.priceCurrent * item.amount;
@@ -289,16 +289,14 @@ function Checkout() {
           <div className={cx('footer-list')}>
             <p className={cx('footer-item')}>Phí vận chuyển</p>
             <p className={cx('footer-item')}>
-              {transports && transports.length > 0
-                ? transports[0].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
-                : 0}
+              {transports ? transports[0].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') : 0} đ
             </p>
           </div>
           <div className={cx('footer-list')}>
             <p className={cx('footer-item')}>Tổng thanh toán</p>
             <p className={cx('footer-item')}>
-              {(totalMoney && transports.length) > 0
-                ? (totalMoney + (transports && transports[0].price)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+              {totalMoney && transports && transports.length > 0
+                ? (totalMoney + transports[0].price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
                 : totalMoney.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
               đ
             </p>
@@ -423,7 +421,9 @@ function Checkout() {
           <div className={cx('footer-list')}>
             <p className={cx('footer-item')}>Phí vận chuyển</p>
             <p className={cx('footer-item')}>
-              {transports && transports[0].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+              {transports &&
+                transports.length > 0 &&
+                transports[0].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
             </p>
           </div>
         </div>
@@ -432,8 +432,9 @@ function Checkout() {
             <p className={cx('footer-item-mobile')}>
               Tổng cộng:{' '}
               <span>
-                {totalMoney &&
-                  (totalMoney + (transports && transports[0].price)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+                {totalMoney && transports && transports.length > 0
+                  ? (totalMoney + transports[0].price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+                  : totalMoney.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
                 đ
               </span>
             </p>

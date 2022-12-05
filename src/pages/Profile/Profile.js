@@ -264,7 +264,7 @@ function Profile() {
         <div>
           <form onSubmit={handleChangeAvatar}>
             <label htmlFor="avatar" className={cx('label-avatar')}>
-              {avatar || img ? <span></span> : <span>Chọn ảnh đại diện</span>}
+              {avatar || img ? <span></span> : <span className={cx('choose-avatar')}>Chọn ảnh đại diện</span>}
               {((avatar && avatar.preview) || img) && (
                 <img
                   className={cx('avatar')}

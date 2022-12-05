@@ -114,6 +114,15 @@ function Comment({ product }) {
   }
 
   const handleUploadFile = async (files) => {
+    if (files.length > 5) {
+      addToast({
+        id: toastList.length + 1,
+        title: 'Thất bại',
+        content: 'Không chọn quá 5 hình ảnh',
+        type: 'error',
+      });
+      return { success: false };
+    }
     let data = new FormData();
     _.forEach(files, (file) => {
       const imgId = uuidv4();

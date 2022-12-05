@@ -15,6 +15,7 @@ function Toast() {
     toastState: { toastList },
     deleteToast,
   } = useContext(ToastContext);
+
   const icons = {
     success: <FontAwesomeIcon icon={faCheck} />,
     info: <FontAwesomeIcon icon={faInfo} />,

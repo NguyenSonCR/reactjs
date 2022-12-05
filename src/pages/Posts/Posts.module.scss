@@ -4,6 +4,19 @@
     align-items: center;
     height: 100%;
     margin-bottom: 24px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 8px 14px 0 rgba(0,0,0,0.19);
+    
+    &:hover {
+        box-shadow: 0 8px 12px 0 rgba(0,0,0,0.24), 0 14px 30px 0 rgba(0,0,0,0.19)
+    }
+}
+
+.wrapper-nopost {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 120px);
+    margin-bottom: 24px;
 }
 
 .title, .header {
@@ -11,7 +24,7 @@
     text-align: left;
     color: var(--primary-color);
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 1.6rem;
 }
 
 .header {
@@ -23,11 +36,11 @@
 }
 
 .header-title {
-    padding: 8px;
+    padding: 12px;
     text-align: left;
     color: var(--text-color);
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 1.6rem;
     width: 100%;
     background-color: var(--white-color);
     border-bottom: 1px solid #ccc;
@@ -72,4 +85,16 @@
 
 .img {
     width: 100%;
+}
+
+.mobile .img {
+    width: 200px;
+}
+
+.mobile .header {
+    font-size: 1.6rem;
+}
+
+.text {
+    padding: 8px;
 }

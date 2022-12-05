@@ -271,7 +271,7 @@ function Login() {
               <div className={cx('change')}>
                 <p className={cx('change-text')}>Bạn mới biết đến Nhật Bình Shop?</p>
                 <Button to={config.routes.register} primary fill className={cx('change-btn')}>
-                  Đăng ký
+                  <span className={cx('change-btn-span')}>Đăng ký</span>
                 </Button>
               </div>
             </div>

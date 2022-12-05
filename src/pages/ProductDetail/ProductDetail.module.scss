@@ -105,6 +105,14 @@
     cursor: pointer;
 }
 
+.img-mobile {
+    height: 300px;
+    width: 100%;
+    object-fit: contain;
+    padding: 2px;
+    cursor: pointer;
+}
+
 .slide {
     display: flex;
     overflow-x: auto;

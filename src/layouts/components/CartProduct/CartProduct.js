@@ -5,7 +5,7 @@ import { CartContext } from '~/contexts/CartContext';
 import { AuthContext } from '~/contexts/AuthContext';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faMinus, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
@@ -144,7 +144,7 @@ function CartProduct({ children, cartItem }) {
             <img className={cx('cart-img-mobile')} src={cartItem.product.img} alt="product" />
           </div>
           <div className={cx('content__list-mobile')}>
-            <p className={cx('content__text-mobile')}> {cartItem.product.name}</p>
+            <p className={cx('content__text')}> {cartItem.product.name}</p>
             <div className={cx('content__list-price')}>
               <p className={cx('content__text')}>
                 {cartItem.product.priceCurrent.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}đ
@@ -164,10 +164,12 @@ function CartProduct({ children, cartItem }) {
               </div>
             </div>
             <div className={cx('action-mobile')}>
-              <p className={cx('content__text')}>Tổng: {totalOneProduct}đ</p>
-              <p className={cx('content__text', 'click')} onClick={() => handleRemove(cartItem.product)}>
-                Xóa
-              </p>
+              <p className={cx('content__text-mobile')}>Tổng: {totalOneProduct}đ</p>
+              <FontAwesomeIcon
+                icon={faTrash}
+                className={cx('content__text', 'click')}
+                onClick={() => handleRemove(cartItem.product)}
+              ></FontAwesomeIcon>
             </div>
           </div>
         </div>

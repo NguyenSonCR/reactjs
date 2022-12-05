@@ -137,7 +137,7 @@ function ProductDetail() {
     }
 
     function handleTouchEnd() {
-      if (touchStart - touchEnd < -100) {
+      if (touchStart - touchEnd < -50) {
         // do your stuff here for left swipe
         console.log('touch left');
         if (avatar.id !== 0) {
@@ -148,7 +148,7 @@ function ProductDetail() {
         }
       }
 
-      if (touchStart - touchEnd > 100) {
+      if (touchStart - touchEnd > 50) {
         // do your stuff here for right swipe
         if (avatar.id < slide.length - 1) {
           setAvatar({
@@ -165,7 +165,7 @@ function ProductDetail() {
           <div className={cx('background')}>
             <div className={cx('image')}>
               <img
-                className={cx('img')}
+                className={cx('img-mobile')}
                 src={avatar.img ? avatar.img : img}
                 alt={name}
                 onClick={() => setImgModel(true)}

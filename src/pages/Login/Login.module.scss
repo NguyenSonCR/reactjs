@@ -295,6 +295,12 @@
     color: var(--white-color);
 }
 
+.change-btn-span {
+    color: var(--white-color);
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
 @media (max-width: 739px) {
     .button {
         justify-content: center;

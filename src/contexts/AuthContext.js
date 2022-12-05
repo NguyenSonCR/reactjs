@@ -17,12 +17,13 @@ const AuthContextProvider = ({ children }) => {
 
   // config firebase
   const firebaseConfig = {
-    apiKey: 'AIzaSyCmzwyeYgyWBRn3C795zpivTazS3jUPGpc',
-    authDomain: 'nhat-binh-shop.firebaseapp.com',
-    projectId: 'nhat-binh-shop',
-    storageBucket: 'nhat-binh-shop.appspot.com',
-    messagingSenderId: '364259158829',
-    appId: '1:364259158829:web:97da836b26746a6f7ec1a4',
+    apiKey: 'AIzaSyC7GQhvt97RdKnUZhE3108VzlWQ4Dto5NI',
+    authDomain: 'nhatbinhshop-b4304.firebaseapp.com',
+    projectId: 'nhatbinhshop-b4304',
+    storageBucket: 'nhatbinhshop-b4304.appspot.com',
+    messagingSenderId: '612070203199',
+    appId: '1:612070203199:web:3ca548a1b0d4d19dcabd8a',
+    measurementId: 'G-JC02RY0CNH',
   };
 
   const app = initializeApp(firebaseConfig);

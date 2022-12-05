@@ -39,6 +39,13 @@
 .label-avatar span {
     text-align: center;
 }
+
+.choose-avatar {
+    padding: 4px;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--primary-color);
+}
 .model {
     padding: 12px 0;
     width: 50vh;

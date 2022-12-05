@@ -4,19 +4,17 @@
 }
 .wrapper {
     height: 60px;
+    width: 100%;
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
     position: fixed;
-    width: inherit;
     top: 0;
-    right: 0;
-    left: 0;
     z-index: 10;
 }
 .inner {
     display: flex;
     height: 100%;
     background-color: rgb(119, 221, 187);
-    justify-content: space-evenly;
+    justify-content:space-evenly;
     align-items: center;
 }
 .logo-wrapper {
@@ -27,12 +25,18 @@
 }
 
 .logo {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .logo-img {
     height: 55px;
     padding: 0 20px;
     border-radius: 50%;
+}
+
+.logo-img.mobile {
+    padding: 0 4px;
 }
 
 

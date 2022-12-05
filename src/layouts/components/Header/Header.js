@@ -64,11 +64,11 @@ function Header() {
   return (
     <div className={cx('main')}>
       <Toast />
-      <div className={cx('wrapper', ['grid', 'wide'])}>
+      <div className={cx('wrapper', width > 740 && ['grid', 'wide'])}>
         <div className={cx('inner')}>
           <div className={cx('logo-wrapper')}>
             <Link className={cx('logo')} to={config.routes.home}>
-              <img src={images.logo} alt="logo" className={cx('logo-img')}></img>
+              <img src={images.logo} alt="logo" className={cx('logo-img', width < 740 && 'mobile')}></img>
             </Link>
           </div>
 

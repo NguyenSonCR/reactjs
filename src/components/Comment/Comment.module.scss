@@ -157,11 +157,8 @@
     color: var(--primary-color);
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
+    justify-content: flex-start;
     text-align: center;
-    border: 1px dotted #ccc;
 }
 
 .imgs-preview {

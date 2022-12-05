@@ -21,6 +21,7 @@ html {
     font-family: 'roboto', sans-serif;
     box-sizing: border-box;
 }
+
 #root {
     overflow: hidden;
 }
@@ -35,10 +36,9 @@ button, input, [tabindex] {
 }
 
 a[href] {
-    // color: var(--text-color);
+    color: var(--text-color);
     text-decoration: none;
 }
-
 
 /* Animation */
 @keyframes fadeIn {

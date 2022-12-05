@@ -27,10 +27,26 @@ function Cart() {
     chooseNavigation,
   } = useContext(AuthContext);
 
+  const {
+    toastState: { toastList },
+    addToast,
+    deleteToast,
+  } = useContext(ToastContext);
+
   useEffect(() => {
     chooseNavigation('cart');
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    return () => {
+      toastList.length > 0 &&
+        toastList.forEach((toast) => {
+          deleteToast(toast.id);
+        });
+    };
+    // eslint-disable-next-line
+  });
 
   const [totalMoney, setTotalMoney] = useState(0);
   const [isChecked, setIsChecked] = useState(false);
@@ -71,11 +87,6 @@ function Cart() {
       resetProductChoose();
     }
   };
-
-  const {
-    toastState: { toastList },
-    addToast,
-  } = useContext(ToastContext);
 
   const handleBuy = async (productSelect) => {
     try {

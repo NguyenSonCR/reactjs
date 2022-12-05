@@ -10,6 +10,14 @@ const cx = classNames.bind(styles);
 
 function Home() {
   const width = window.innerWidth > 0 ? window.innerWidth : window.screen.width;
+  // var r = document.querySelector(':root');
+  // console.log(r.style);
+  // function myFunction_set() {
+  //   // Set the value of variable --blue to another value (in this case "lightblue")
+  //   r.style.setProperty('--primary-color', 'pink');
+  //   r.style.setProperty('--text-color', 'rgb(0,200,50)');
+  // }
+  // myFunction_set();
   const {
     categoryState: { categories },
     getCategories,

@@ -1,14 +1,14 @@
 
 /* product- show*/
 .wrapper {
-    padding: 24px 12px;
+    padding: 12px;
     display: flex;
     flex-direction: column;
 }
 
 .title {
     color: var(--primary-color);
-    padding: 24px 0;
+    padding: 12px 0;
     font-size: 2.4rem;
     font-weight: 400;
     text-align: justify;
@@ -93,4 +93,12 @@
 
 .btn-action {
     margin: 0 12px;
+}
+
+@media (max-width: 740px) {
+    .img {
+        width: 100%;
+        height: 250px;
+        object-fit: contain;
+    }
 }
