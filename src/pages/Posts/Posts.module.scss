@@ -28,11 +28,17 @@
 }
 
 .header {
-    padding: 8px;
-    text-align: left;
     color: var(--text-color);
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    text-align: justify;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    padding: 0 8px;
 }
 
 .header-title {
@@ -61,19 +67,6 @@
     padding: 4px 8px;
 }
 
-.content {
-    margin: 8px;
-    color: var(--text-color);
-    font-weight: 400;
-    font-size: 1.6rem;
-    line-height: 2rem;
-    text-align: justify;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    text-overflow: ellipsis;
-}
 
 .link {
     padding: 6px 12px;
@@ -97,4 +90,11 @@
 
 .text {
     padding: 8px;
+}
+
+.mobile-img {
+    height: 240px;
+    width: 100%;
+    padding: 8px 12px;
+    object-fit: cover;
 }

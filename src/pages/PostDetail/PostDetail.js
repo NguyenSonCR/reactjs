@@ -30,7 +30,7 @@ function ProductDetail() {
     // eslint-disable-next-line
   }, []);
 
-  const { title, header, content, img } = postValue;
+  const { title, header, content } = postValue;
 
   let body = null;
   if (postLoading) {
@@ -40,8 +40,10 @@ function ProductDetail() {
       <div className={cx('wrapper')}>
         <h4 className={cx('title')}>{title}</h4>
         <p className={cx('header')}>{header}</p>
-        <p className={cx('content')}>{content}</p>
-        {img && img.map((url, index) => <img className={cx('img')} key={index} src={url} alt={title}></img>)}
+        <div className={cx('content', ['ql-editor'])} style={{padding: '8px 0'}} dangerouslySetInnerHTML={{
+          __html: content
+        }}></div>
+
         <div className={cx('action')}>
           <Button primary to={config.routes.posts}>
             Quay lại

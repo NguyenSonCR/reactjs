@@ -4,6 +4,7 @@ import Spinner from '~/components/Spinner';
 import config from '~/config';
 import { useState, useContext, useEffect } from 'react';
 import { PostContext } from '~/contexts/PostContext';
+import { Link } from 'react-router-dom';
 
 import PostItem from '~/components/PostItem';
 import Button from '~/components/Button';
@@ -97,13 +98,15 @@ function Posts() {
             <h3 className={cx('header-title')}>Tất cả bài viết</h3>
             {currentPage.map((post, index) => (
               <div key={index} className="col l-12 m-12 c-12">
-                <Button key={index} to={`${config.routes.posts}/${post.slug}`} className={cx('wrapper')}>
+                <Link key={index} to={`${config.routes.posts}/${post.slug}`} >
+                  <div>
+                    <img className={cx('mobile-img')} src={post.img[0]} alt=''></img>
+                  </div>
                   <div className={cx('text')}>
                     <h4 className={cx('title')}>{post.title}</h4>
                     <p className={cx('header')}>{post.header}</p>
-                    <p className={cx('content')}>{post.content}</p>
                   </div>
-                </Button>
+                </Link>
               </div>
             ))}
           </div>

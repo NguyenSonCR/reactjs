@@ -18,7 +18,7 @@ function DefaultLayout({ children }) {
           {width > 740 ? (
             <Fragment>
               <Sidebar />
-              <div className={cx(['col', 'l-9', 'm-9', 'c-9'])}>{children}</div>
+              <div className={cx(['col', 'l-10', 'm-9', 'c-9'])}>{children}</div>
             </Fragment>
           ) : (
             <div className={cx(['col', 'l-12', 'm-12', 'c-12'])}>{children}</div>

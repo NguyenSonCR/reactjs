@@ -40,6 +40,17 @@ a[href] {
     text-decoration: none;
 }
 
+.ql-editor img {
+    width: 100%;
+    padding: 0 24px;
+    object-fit: cover;
+  }
+  
+.ql-editor p {
+    text-align: justify;
+    padding: 8px 0;
+}
+
 /* Animation */
 @keyframes fadeIn {
     from {

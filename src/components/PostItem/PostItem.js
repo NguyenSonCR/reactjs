@@ -10,7 +10,6 @@ function ProductItem({ post: { title, header, content, img, slug } }) {
       <div className={cx('text')}>
         <h4 className={cx('title')}>{title}</h4>
         <p className={cx('header')}>{header}</p>
-        <p className={cx('content')}>{content}</p>
       </div>
       <img className={cx('img')} src={img[0]} alt={title} />
     </Button>
