@@ -1,7 +1,7 @@
 import styles from './Purchase.module.scss';
 import classNames from 'classnames/bind';
 import UserMenu from '~/layouts/components/UserMenu';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useContext, useEffect } from 'react';
 import { CartContext } from '~/contexts/CartContext';
 import { AuthContext } from '~/contexts/AuthContext';
@@ -11,8 +11,22 @@ const cx = classNames.bind(styles);
 
 function Purchase() {
   const [content, setContent] = useState(2);
+  const scrollRef2 = useRef();
+  const scrollRef3 = useRef();
+  const scrollRef4 = useRef();
+  const scrollRef5 = useRef();
   const onHandleSetContent = (number) => {
-    setContent(number);
+    setContent(number);  
+    if(number === 2) {
+      scrollRef2.current.scrollIntoView({behavior:"smooth", block: "center", inline:"center"});
+    } else if(number === 3) {
+      scrollRef3.current.scrollIntoView({behavior:"smooth", block: "center", inline:"center"});
+    } else if(number === 4) {
+      scrollRef4.current.scrollIntoView({behavior:"smooth", block: "center", inline:"center"});
+    } else if(number === 5) {
+      scrollRef5.current.scrollIntoView({behavior:"smooth", block: "center", inline:"center"});
+    }
+    
   };
 
   const width = window.innerWidth > 0 ? window.innerWidth : window.screen.width;
@@ -55,6 +69,7 @@ function Purchase() {
   }
 
   let body = null;
+
   if (width > 740) {
     body = (
       <div className={cx('purchase')}>
@@ -117,32 +132,32 @@ function Purchase() {
     body = (
       <div className={cx('purchase')}>
         <div className={cx('body')}>
-          <div className={cx('header-mobile')}>
+          <div className={cx('header-mobile')} >
             <div className={cx('header-tab-mobile', content === 1 && 'active')} onClick={() => onHandleSetContent(1)}>
               <p className={cx('tab-title-mobile')}>
                 Tất cả
                 {orders.length > 0 && <span>({orders.length})</span>}
               </p>
             </div>
-            <div className={cx('header-tab-mobile', content === 2 && 'active')} onClick={() => onHandleSetContent(2)}>
+            <div className={cx('header-tab-mobile', content === 2 && 'active')} ref={scrollRef2} onClick={() => onHandleSetContent(2)}>
               <p className={cx('tab-title-mobile')}>
                 Chờ xác nhận
                 {confirm.length > 0 && <span>({confirm.length})</span>}
               </p>
             </div>
-            <div className={cx('header-tab-mobile', content === 3 && 'active')} onClick={() => onHandleSetContent(3)}>
+            <div className={cx('header-tab-mobile', content === 3 && 'active')} ref={scrollRef3}  onClick={() => {onHandleSetContent(3)}}>
               <p className={cx('tab-title-mobile')}>
                 Chờ lấy hàng
                 {shipper.length > 0 && <span>({shipper.length})</span>}
               </p>
             </div>
-            <div className={cx('header-tab-mobile', content === 4 && 'active')} onClick={() => onHandleSetContent(4)}>
+            <div className={cx('header-tab-mobile', content === 4 && 'active')} ref={scrollRef4}  onClick={() => onHandleSetContent(4)}>
               <p className={cx('tab-title-mobile')}>
                 Đang giao
                 {transported.length > 0 && <span>({transported.length})</span>}
               </p>
             </div>
-            <div className={cx('header-tab-mobile', content === 5 && 'active')} onClick={() => onHandleSetContent(5)}>
+            <div className={cx('header-tab-mobile', content === 5 && 'active')} ref={scrollRef5} onClick={() => onHandleSetContent(5)}>
               <p className={cx('tab-title-mobile')}>
                 Đã giao
                 {done.length > 0 && <span>({done.length})</span>}
