@@ -17,6 +17,9 @@ function Purchase() {
   const scrollRef5 = useRef();
   const onHandleSetContent = (number) => {
     setContent(number);  
+  };
+
+  const setScroll = (number) => {
     if(number === 2) {
       scrollRef2.current.scrollIntoView({behavior:"smooth", block: "center", inline:"center"});
     } else if(number === 3) {
@@ -26,8 +29,7 @@ function Purchase() {
     } else if(number === 5) {
       scrollRef5.current.scrollIntoView({behavior:"smooth", block: "center", inline:"center"});
     }
-    
-  };
+  }
 
   const width = window.innerWidth > 0 ? window.innerWidth : window.screen.width;
   const {
@@ -139,25 +141,33 @@ function Purchase() {
                 {orders.length > 0 && <span>({orders.length})</span>}
               </p>
             </div>
-            <div className={cx('header-tab-mobile', content === 2 && 'active')} ref={scrollRef2} onClick={() => onHandleSetContent(2)}>
+            <div className={cx('header-tab-mobile', content === 2 && 'active')} ref={scrollRef2} onClick={() => {
+              setScroll(2)
+              onHandleSetContent(2)}}>
               <p className={cx('tab-title-mobile')}>
                 Chờ xác nhận
                 {confirm.length > 0 && <span>({confirm.length})</span>}
               </p>
             </div>
-            <div className={cx('header-tab-mobile', content === 3 && 'active')} ref={scrollRef3}  onClick={() => {onHandleSetContent(3)}}>
+            <div className={cx('header-tab-mobile', content === 3 && 'active')} ref={scrollRef3}  onClick={() => {
+              setScroll(3)
+              onHandleSetContent(3)}}>
               <p className={cx('tab-title-mobile')}>
                 Chờ lấy hàng
                 {shipper.length > 0 && <span>({shipper.length})</span>}
               </p>
             </div>
-            <div className={cx('header-tab-mobile', content === 4 && 'active')} ref={scrollRef4}  onClick={() => onHandleSetContent(4)}>
+            <div className={cx('header-tab-mobile', content === 4 && 'active')} ref={scrollRef4}  onClick={() => {
+              setScroll(4)
+              onHandleSetContent(4)}}>
               <p className={cx('tab-title-mobile')}>
                 Đang giao
                 {transported.length > 0 && <span>({transported.length})</span>}
               </p>
             </div>
-            <div className={cx('header-tab-mobile', content === 5 && 'active')} ref={scrollRef5} onClick={() => onHandleSetContent(5)}>
+            <div className={cx('header-tab-mobile', content === 5 && 'active')} ref={scrollRef5} onClick={() => {
+              setScroll(5)
+              onHandleSetContent(5)}}>
               <p className={cx('tab-title-mobile')}>
                 Đã giao
                 {done.length > 0 && <span>({done.length})</span>}

@@ -11,7 +11,7 @@ function CartItem({ product }) {
         <img className={cx('img')} src={product.img} alt={product.img}></img>
         <div className={cx('info')}>
           <p className={cx('name')}>{product.name}</p>
-          <span className={cx('id')}>Mã sản phẩm: {product._id}</span>
+          <span className={cx('id')}>Danh mục: {product.category}</span>
         </div>
       </Link>
     );
