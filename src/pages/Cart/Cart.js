@@ -72,7 +72,7 @@ function Cart() {
     if (cart) {
       chooseAllProduct = cart.products.map((cartItem) => {
         return {
-          productId: cartItem.product.productId,
+          _id: cartItem.product._id,
           priceCurrent: cartItem.product.priceCurrent,
           amount: cartItem.amount,
         };

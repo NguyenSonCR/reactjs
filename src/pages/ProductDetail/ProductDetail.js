@@ -111,7 +111,7 @@ function ProductDetail() {
     const {
       name,
       description,
-      productId,
+      _id,
       img,
       imgSlide,
       category,
@@ -470,7 +470,7 @@ function ProductDetail() {
                     <p className={cx('list-value')}> {priceCurrent}</p>
                     <p className={cx('list-value')}> {priceOld}</p>
                     <p className={cx('list-value')}> {saleOffPercent}</p>
-                    <p className={cx('list-value')}> {productId}</p>
+                    <p className={cx('list-value')}> {_id}</p>
                     <p className={cx('list-value')}> {bought}</p>
                   </div>
                 </div>

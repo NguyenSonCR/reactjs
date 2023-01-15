@@ -102,7 +102,7 @@ export const cartReducer = (state, action) => {
     case UNCHOOSE_PRODUCT:
       return {
         ...state,
-        productSelect: state.productSelect.filter((item) => item.productId !== payload.productId),
+        productSelect: state.productSelect.filter((item) => item._id !== payload._id),
       };
 
     case RESET_CHOOSE_PRODUCT:
@@ -114,7 +114,7 @@ export const cartReducer = (state, action) => {
     case DELETE_PRODUCT_CHOOSE:
       return {
         ...state,
-        productSelect: state.productSelect.filter((item) => item.productId !== payload.productId),
+        productSelect: state.productSelect.filter((item) => item._id !== payload._id),
       };
 
     case SELECT_ALL_PRODUCT:
@@ -127,9 +127,9 @@ export const cartReducer = (state, action) => {
         ...state,
         productSelect: state.productSelect.map((item) => {
           return {
-            productId: item.productId,
+            _id: item._id,
             priceCurrent: item.priceCurrent,
-            amount: item.productId === payload.productId ? item.amount + 1 : item.amount,
+            amount: item._id === payload._id ? item.amount + 1 : item.amount,
           };
         }),
       };
@@ -139,9 +139,9 @@ export const cartReducer = (state, action) => {
         ...state,
         productSelect: state.productSelect.map((item) => {
           return {
-            productId: item.productId,
+            _id: item._id,
             priceCurrent: item.priceCurrent,
-            amount: item.productId === payload.productId ? item.amount - 1 : item.amount,
+            amount: item._id === payload._id ? item.amount - 1 : item.amount,
           };
         }),
       };

@@ -44,10 +44,10 @@ function CartContextProvider({ children }) {
 
   // add product when choose
 
-  const chooseProduct = (productId, priceCurrent, amount) => {
+  const chooseProduct = (_id, priceCurrent, amount) => {
     dispatch({
       type: CHOOSE_PRODUCT,
-      payload: { productId, priceCurrent, amount },
+      payload: { _id, priceCurrent, amount },
     });
   };
 
@@ -65,10 +65,10 @@ function CartContextProvider({ children }) {
   };
   // unchoose product
 
-  const unChooseProduct = (productId) => {
+  const unChooseProduct = (_id) => {
     dispatch({
       type: UNCHOOSE_PRODUCT,
-      payload: { productId },
+      payload: { _id },
     });
   };
 
@@ -90,25 +90,25 @@ function CartContextProvider({ children }) {
   };
 
   // delete productChoose on context
-  const deleteProductChoose = (productId) => {
+  const deleteProductChoose = (_id) => {
     dispatch({
       type: DELETE_PRODUCT_CHOOSE,
-      payload: { productId },
+      payload: { _id },
     });
   };
   // them so luong khi da chon san pham
-  const plusAmountProduct = (productId) => {
+  const plusAmountProduct = (_id) => {
     dispatch({
       type: PLUS_AMOUNT_PRODUCT,
-      payload: { productId },
+      payload: { _id },
     });
   };
 
   // bot so luong khi da chon san pham
-  const minusAmountProduct = (productId) => {
+  const minusAmountProduct = (_id) => {
     dispatch({
       type: MINUS_AMOUNT_PRODUCT,
-      payload: { productId },
+      payload: { _id },
     });
   };
 

@@ -45,7 +45,7 @@ function Checkout() {
   if (cart && cart.checkout && products) {
     checkoutProducts = cart.checkout.map((item) => {
       return {
-        product: products.find((product) => product.productId === item.productId),
+        product: products.find((product) => product._id === item._id),
         priceCurrent: item.priceCurrent,
         amount: item.amount,
       };
@@ -144,7 +144,7 @@ function Checkout() {
         removeCart({ username: user.username, listProduct: checkoutProducts });
 
         for (let i = 0; i < checkoutProducts.length; i++) {
-          deleteProductChoose(checkoutProducts[i].product.productId);
+          deleteProductChoose(checkoutProducts[i].product._id);
         }
         removeProductCheckout({ username: user.username, checkout: [] });
 

@@ -31,7 +31,7 @@ function CartProduct({ children, cartItem }) {
   const handleRemove = (product) => {
     console.log(product);
     removeCart({ username: user.username, listProduct: [{ product: product }] });
-    deleteProductChoose(product.productId);
+    deleteProductChoose(product._id);
   };
 
   useEffect(() => {
@@ -47,7 +47,7 @@ function CartProduct({ children, cartItem }) {
     } else if (productSelect.length === 0) {
       setIsChecked(false);
     } else {
-      if (productSelect.productId === cartItem.product.productId) {
+      if (productSelect._id === cartItem.product._id) {
         setIsChecked(true);
       }
     }
@@ -57,10 +57,10 @@ function CartProduct({ children, cartItem }) {
   const handleOnChange = () => {
     if (isChecked === false) {
       setIsChecked(!isChecked);
-      chooseProduct(cartItem.product.productId, cartItem.product.priceCurrent, amount);
+      chooseProduct(cartItem.product._id, cartItem.product.priceCurrent, amount);
     } else {
       setIsChecked(!isChecked);
-      unChooseProduct(cartItem.product.productId);
+      unChooseProduct(cartItem.product._id);
     }
   };
 
@@ -68,14 +68,14 @@ function CartProduct({ children, cartItem }) {
     if (amount > 1) {
       onMinusCart({ username: user.username, product: cartItem.product });
       setAmount(amount - 1);
-      minusAmountProduct(cartItem.product.productId);
+      minusAmountProduct(cartItem.product._id);
     }
   };
 
   const onPlus = (amount) => {
     addCart({ username: user.username, product: cartItem.product, amount: 1 });
     setAmount(amount + 1);
-    plusAmountProduct(cartItem.product.productId);
+    plusAmountProduct(cartItem.product._id);
   };
 
   const totalOneProduct = (cartItem.product.priceCurrent * cartItem.amount)
@@ -90,7 +90,7 @@ function CartProduct({ children, cartItem }) {
           <input
             className={cx('header-checkbox')}
             type={'checkbox'}
-            id={cartItem.product.productId}
+            id={cartItem.product._id}
             checked={isChecked}
             onChange={handleOnChange}
           />
@@ -134,7 +134,7 @@ function CartProduct({ children, cartItem }) {
           <input
             className={cx('header-checkbox')}
             type={'checkbox'}
-            id={cartItem.product.productId}
+            id={cartItem.product._id}
             checked={isChecked}
             onChange={handleOnChange}
           />
